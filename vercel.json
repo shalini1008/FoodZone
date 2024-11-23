@@ -1,15 +1,4 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "src/**/index.js",
-      "use": "@vercel/static-build"
-    },
-    {
-      "src": "server/food.js",
-      "use": "@vercel/node"
-    }
-  ],
   "routes": [
     {
       "src": "/api/food",
@@ -17,11 +6,11 @@
     },
     {
       "src": "/images/(.*)",
-      "dest": "/public/images/$1"
+      "dest": "/server/public/images/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/src/index.html"
+      "dest": "/dist/index.html"
     }
   ]
 }
