@@ -4,7 +4,7 @@
     { "source": "/(.*)", "destination": "/dist/index.html" }
   ],
   "builds": [
-    { "src": "server/index.js", "use": "@vercel/node" },
+    { "src": "server/index.ts", "use": "@vercel/node" },
     { "src": "vite.config.js", "use": "@vercel/static-build" }
   ]
 }
