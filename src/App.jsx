@@ -2,32 +2,31 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import SearchFood from "./components/SearchFood";
 
-export const BASE_URL = "http://localhost:9000";
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 function App() {
-
-  const [data,setData] = useState(null);
-  const [loading,setLoading] = useState(false);
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [filteredData, setFilteredData] = useState(data);
-  const [error,setError] = useState(null);
+  const [error, setError] = useState(null);
   const [selectedBtn, setSelectedBtn] = useState("all");
 
-  useEffect( () => {
-    const fetchFoodData = async () =>{
+  useEffect(() => {
+    const fetchFoodData = async () => {
       setLoading(true);
       try {
-      const response = await fetch(BASE_URL);
-      const json = await response.json();
-      setData(json);
-      setFilteredData(json);
-      setLoading(false)
-      console.log(json);
+        const response = await fetch(BASE_URL);
+        const json = await response.json();
+        setData(json);
+        setFilteredData(json);
+        setLoading(false);
+        console.log(json);
       } catch (error) {
-        setError("unable to fetch data");
+        setError("Unable to fetch data");
       }
     };
-    fetchFoodData(); 
-  },[])
+    fetchFoodData();
+  }, []);
 
   const searchFood = (e) => {
         const searchValue = e.target.value;
