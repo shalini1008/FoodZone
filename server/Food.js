@@ -5,46 +5,47 @@ export default async function handler(req, res) {
       name: "Boiled Egg",
       price: 10,
       text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      image: "/public/images/egg.png",  // Ensure the correct path to images
+      image: "/images/egg.png",  // Correct path
       type: "breakfast",
     },
     {
       name: "RAMEN",
       price: 25,
       text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      image: "/public/images/ramen.png",
+      image: "/images/ramen.png",  // Correct path
       type: "lunch",
     },
     {
       name: "GRILLED CHICKEN",
       price: 45,
       text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      image: "/public/images/chicken.png",
+      image: "/images/chicken.png",  // Correct path
       type: "dinner",
     },
     {
       name: "CAKE",
       price: 18,
       text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      image: "/public/images/cake.png",
+      image: "/images/cake.png",  // Correct path
       type: "breakfast",
     },
     {
       name: "BURGER",
       price: 23,
       text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      image: "/public/images/burger.png",
+      image: "/images/burger.png",  // Correct path
       type: "lunch",
     },
     {
       name: "PANCAKE",
       price: 25,
       text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      image: "/public/images/pancake.png",
+      image: "/images/pancake.png",  // Correct path
       type: "dinner",
     },
   ];
 
   res.status(200).json(foodData);  // Respond with the food data
 }
+
 
