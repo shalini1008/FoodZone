@@ -6,7 +6,7 @@
     },
     {
       "src": "/images/(.*)",
-      "dest": "/public/images/$1"
+      "dest": "/server/public/images/$1"
     },
     {
       "src": "/(.*)",
