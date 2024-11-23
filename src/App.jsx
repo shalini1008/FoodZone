@@ -2,25 +2,23 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import SearchFood from "./components/SearchFood";
 
-const BASE_URL = "/"; // Relative path
+const BASE_URL = "/api/food"; 
 
 function App() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [filteredData, setFilteredData] = useState(data);
   const [error, setError] = useState(null);
-  const [selectedBtn, setSelectedBtn] = useState("all");
 
   useEffect(() => {
     const fetchFoodData = async () => {
       setLoading(true);
       try {
-        const response = await fetch(BASE_URL); // Will use relative URL
+        const response = await fetch(BASE_URL);
         const json = await response.json();
         setData(json);
         setFilteredData(json);
         setLoading(false);
-        console.log(json);
       } catch (error) {
         setError("Unable to fetch data");
       }
