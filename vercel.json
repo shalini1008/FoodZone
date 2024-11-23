@@ -1,16 +1,25 @@
 {
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    },
+    {
+      "src": "vite.config.js",
+      "use": "@vercel/static-build"
+    }
+  ],
   "routes": [
     {
       "src": "/api/food",
-      "dest": "/server/food.js"  
+      "dest": "/server/food.js"
     },
     {
-      "src": "/images/(.*)", 
-      "dest": "/server/public/images/$1" 
-    },
-    {
-      "src": "/(.*)",  
-      "dest": "/dist/index.html" 
+      "src": "/(.*)",
+      "dest": "/dist/$1"
     }
   ]
 }
