@@ -6,12 +6,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const cors = require('cors');
-// Allow all origins
 app.use(cors());
-// Allow specific origin(s)
-app.use(cors({
-  origin: 'https://food-zone-eight.vercel.app/'
-}));
+
 
 app.use("/images", express.static(path.join(__dirname, "../public/images")));
 
