@@ -2,15 +2,15 @@
   "routes": [
     {
       "src": "/api/food",
-      "dest": "/server/food.js"  // API route to /server/food.js
+      "dest": "/server/food.js"  
     },
     {
-      "src": "/images/(.*)",  // Route for image assets
-      "dest": "/server/public/images/$1"  // Static images are in /server/public/images
+      "src": "/images/(.*)", 
+      "dest": "/server/public/images/$1" 
     },
     {
-      "src": "/(.*)",  // Route for frontend files
-      "dest": "/dist/index.html"  // Ensure this points to your frontend (use dist or another appropriate path)
+      "src": "/(.*)",  
+      "dest": "/dist/index.html" 
     }
   ]
 }
