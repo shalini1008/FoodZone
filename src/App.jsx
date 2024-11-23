@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import SearchFood from "./components/SearchFood";
 
-const BASE_URL = process.env.REACT_APP_API_URL;
+const BASE_URL = "/"; // Relative path
 
 function App() {
   const [data, setData] = useState(null);
@@ -15,7 +15,7 @@ function App() {
     const fetchFoodData = async () => {
       setLoading(true);
       try {
-        const response = await fetch(BASE_URL);
+        const response = await fetch(BASE_URL); // Will use relative URL
         const json = await response.json();
         setData(json);
         setFilteredData(json);
