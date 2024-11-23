@@ -1,10 +1,25 @@
 {
-  "rewrites": [
-    { "source": "/api/:path*", "destination": "/server/:path*" },
-    { "source": "/(.*)", "destination": "/dist/index.html" }
-  ],
   "builds": [
-    { "src": "server/index.ts", "use": "@vercel/node" },
-    { "src": "vite.config.js", "use": "@vercel/static-build" }
+    {
+      "src": "api/index.ts",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "vite.config.js",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.ts"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/$1"
+    }
   ]
 }
