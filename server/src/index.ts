@@ -2,15 +2,16 @@ import express from "express";
 import path from "path";
 import cors from "cors";
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-const cors = require('cors');
-app.use(cors());
-
-
 app.use("/images", express.static(path.join(__dirname, "../public/images")));
-
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"]
+}));
 
 app.get("/", (req, res) => {
   console.log(path.join(__dirname, "../public"));
@@ -62,6 +63,8 @@ app.get("/", (req, res) => {
   res.json(foodData);
 });
 
-app.listen(9000, () => {
-  console.log("Server is running on port 9000");
+const PORT = process.env.PORT || 9000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
+
